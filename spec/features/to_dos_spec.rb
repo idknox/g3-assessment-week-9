@@ -25,7 +25,7 @@ feature "ToDos" do
       expect(page).to have_content "Get a haircut"
     end
   end
-  scenario "User can edit a ToDo" do
+  scenario "User can edit and complete a ToDo" do
     visit "/"
     click_link "Register"
 
@@ -56,5 +56,9 @@ feature "ToDos" do
 
     expect(page).to have_content "Get a haircut tomorrow"
     expect(page).to have_content "ToDo updated"
+
+    click_button "Complete"
+    expect(page).to have_content "ToDo completed"
+    expect(page).to_not have_content "Get a haircut tomorrow"
   end
 end

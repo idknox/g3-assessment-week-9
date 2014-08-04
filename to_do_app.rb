@@ -79,6 +79,13 @@ class ToDoApp < Sinatra::Application
     redirect "/"
   end
 
+  delete "/todos/:id" do
+    item = ToDoItem.find(params[:id])
+    item.destroy
+    flash[:notice] = "ToDo completed"
+    redirect "/"
+  end
+
   private
 
   def authenticate_user
