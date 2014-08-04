@@ -1,0 +1,6 @@
+<form method="post" action="/todos/<%= todo.id %>">
+  <input type="hidden" name="_method" value="patch"/>
+  <input type="textarea" rows="3"
+         name="body" id="body" value="<%= todo.body %>"/>
+  <button type="submit">Update ToDo</button>
+</form>
