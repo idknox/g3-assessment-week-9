@@ -39,16 +39,9 @@ feature "ToDos" do
 
     click_button "Sign In"
 
-    expect(page).to have_content "Welcome, hunta"
-
     fill_in "What do you need to do?", with: "Get a haircut"
     click_button "Add ToDo"
 
-    expect(page).to have_content "ToDo added"
-
-    within ".todos" do
-      expect(page).to have_content "Get a haircut"
-    end
     click_link "Edit"
 
     fill_in "body", :with => "Get a haircut tomorrow"
